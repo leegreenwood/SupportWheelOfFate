@@ -4,6 +4,10 @@ using Alexa.NET.Request.Type;
 using Alexa.NET.Response;
 using Amazon.Lambda.Core;
 using Newtonsoft.Json;
+using SupportWheelOfFate.Core;
+using System;
+using System.Collections.Generic;
+using System.Net.Http;
 
 // Assembly attribute to enable the Lambda function's JSON input to be converted into a .NET class.
 [assembly: LambdaSerializer(typeof(Amazon.Lambda.Serialization.Json.JsonSerializer))]
@@ -55,8 +59,51 @@ namespace SupportWheelOfFate.Lambda.AlexaHandler
                 switch (intentRequest.Intent.Name)
                 {
                     case "AssignedEngineers":
+
+                        string payload;
+
+                        var inquireDateValue = intentRequest.Intent.Slots["SupportDate"].Value;
+                        var inquireDate = Convert.ToDateTime(inquireDateValue);
+
+                        var engineers = new List<Engineer>();
+
+                        var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/" + inquireDateValue; // Obtain list of all Engineers
+
+                        using (var client = new HttpClient())
+                        {
+                            var apiResponse = client.GetAsync(url).Result;
+
+                            if (apiResponse.IsSuccessStatusCode)
+                            {                                
+                                var responseContent = apiResponse.Content;
+                                
+                                string json = responseContent.ReadAsStringAsync().Result;
+
+                                engineers = JsonConvert.DeserializeObject<List<Engineer>>(json);
+
+                                payload = "The engineers on support are ";
+
+                                var engineerCount = 0;
+
+                                foreach (var engineer in engineers)
+                                {
+                                    payload += engineer.EngineerName;
+                                    engineerCount++;
+
+                                    if (engineerCount < engineers.Count)
+                                    {
+                                        payload += " and ";
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                payload = "I'm afraid I don't have that information at present.";
+                            }
+                        }
+
                         innerResponse = new PlainTextOutputSpeech();
-                        ((PlainTextOutputSpeech)innerResponse).Text = "I'm afraid I don't have that information at present.";
+                        ((PlainTextOutputSpeech)innerResponse).Text = payload + ".";
                         response.Response.ShouldEndSession = true;
                         break;
 

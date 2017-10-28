@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\SupportWheelOfFate.Core\SupportWheelOfFate.Core.csproj" />
     <ProjectReference Include="..\..\src\SupportWheelOfFate.Lambda.AssignedEngineers\SupportWheelOfFate.Lambda.AssignedEngineers.csproj" />
   </ItemGroup>
 
