@@ -1,0 +1,34 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Support Wheel Of Fate",
+		"_postman_id": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9",
+		"description": "This is a simple Postman collection for testing the API for Support Wheel Of Fate.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Engineers List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds"
+					}
+				}
+			],
+			"request": {
+				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Returns a list of the current Engineers"
+			},
+			"response": []
+		}
+	]
+}
