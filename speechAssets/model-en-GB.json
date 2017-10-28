@@ -1,0 +1,63 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "AssignedEngineers",
+      "samples": [
+        "Who is on support {SupportDate}"
+      ],
+      "slots": [
+        {
+          "name": "SupportDate",
+          "type": "AMAZON.DATE",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-AssignedEngineers.IntentSlot-SupportDate",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "What day are you interested in?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "AssignedEngineers",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "SupportDate",
+            "type": "AMAZON.DATE",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-AssignedEngineers.IntentSlot-SupportDate"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
