@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace SupportWheelOfFate.Lambda.AssignedEngineers.Models
+namespace SupportWheelOfFate.Core
 {
     public class Engineer
     {
