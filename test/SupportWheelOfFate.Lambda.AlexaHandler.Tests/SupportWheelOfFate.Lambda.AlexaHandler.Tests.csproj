@@ -26,6 +26,9 @@
     <None Update="RequestObjects\LaunchRequest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="RequestObjects\SupportLastMonth.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="RequestObjects\SupportToday.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

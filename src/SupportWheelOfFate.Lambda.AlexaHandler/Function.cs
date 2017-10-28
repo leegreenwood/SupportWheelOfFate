@@ -75,7 +75,7 @@ namespace SupportWheelOfFate.Lambda.AlexaHandler
                         }
                         else if ((DateTime.Now - inquireDate).TotalDays > 14)
                         {
-                            payload = "We only track rach engineers last shift, and our records don't cover that date";
+                            payload = "We only track each engineers last shift, and our records don't cover that date";
                         }
                         else
                         {
