@@ -29,6 +29,29 @@
 				"description": "Returns a list of the current Engineers"
 			},
 			"response": []
+		},
+		{
+			"name": "Assigned Engineers (Date)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Assigned Engineer Count is 2\"] = jsonData.length === 2;"
+					}
+				}
+			],
+			"request": {
+				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/2017-10-28",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Returns the assigned Engineers for a specific date"
+			},
+			"response": []
 		}
 	]
 }
