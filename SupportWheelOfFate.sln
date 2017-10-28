@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWheelOfFate.Lambda.A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWheelOfFate.Lambda.AlexaHandler.Tests", "test\SupportWheelOfFate.Lambda.AlexaHandler.Tests\SupportWheelOfFate.Lambda.AlexaHandler.Tests.csproj", "{420E8EB2-880A-4240-BA32-098DE5945B1F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "speechAssets", "speechAssets", "{6D52B73E-245A-4FF2-9CA9-50D234811372}"
+	ProjectSection(SolutionItems) = preProject
+		speechAssets\model-en-GB.json = speechAssets\model-en-GB.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
