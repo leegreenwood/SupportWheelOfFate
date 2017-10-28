@@ -11,6 +11,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3B77C112-26F
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{58293130-1F52-4FB7-8DDF-F9BFF4D009C8}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWheelOfFate.Lambda.AlexaHandler", "src\SupportWheelOfFate.Lambda.AlexaHandler\SupportWheelOfFate.Lambda.AlexaHandler.csproj", "{B85FDFDC-845B-406A-A396-6888CEF728F5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWheelOfFate.Lambda.AlexaHandler.Tests", "test\SupportWheelOfFate.Lambda.AlexaHandler.Tests\SupportWheelOfFate.Lambda.AlexaHandler.Tests.csproj", "{420E8EB2-880A-4240-BA32-098DE5945B1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{3BEEC4E7-8A1A-4C5A-87D4-252D939D5DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3BEEC4E7-8A1A-4C5A-87D4-252D939D5DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3BEEC4E7-8A1A-4C5A-87D4-252D939D5DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B85FDFDC-845B-406A-A396-6888CEF728F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B85FDFDC-845B-406A-A396-6888CEF728F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B85FDFDC-845B-406A-A396-6888CEF728F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B85FDFDC-845B-406A-A396-6888CEF728F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420E8EB2-880A-4240-BA32-098DE5945B1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420E8EB2-880A-4240-BA32-098DE5945B1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420E8EB2-880A-4240-BA32-098DE5945B1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420E8EB2-880A-4240-BA32-098DE5945B1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,6 +44,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{657BFBA6-11DE-4E1F-A2BD-9B04FD81D0AF} = {3B77C112-26F4-423E-BC2E-13D39079CA46}
 		{3BEEC4E7-8A1A-4C5A-87D4-252D939D5DEC} = {58293130-1F52-4FB7-8DDF-F9BFF4D009C8}
+		{B85FDFDC-845B-406A-A396-6888CEF728F5} = {3B77C112-26F4-423E-BC2E-13D39079CA46}
+		{420E8EB2-880A-4240-BA32-098DE5945B1F} = {58293130-1F52-4FB7-8DDF-F9BFF4D009C8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {414E6AE6-18DE-4D5B-838E-F0AD2C2398AD}
