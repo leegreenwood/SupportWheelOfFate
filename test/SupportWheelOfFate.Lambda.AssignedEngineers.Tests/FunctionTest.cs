@@ -1,4 +1,5 @@
 using Amazon.Lambda.TestUtilities;
+using SupportWheelOfFate.Core;
 using System.Collections.Generic;
 using Xunit;
 
@@ -18,7 +19,7 @@ namespace SupportWheelOfFate.Lambda.AssignedEngineers.Tests
             var engineers = function.FunctionHandler(request, context);
 
             Assert.NotNull(engineers);
-            Assert.IsType<List<Models.Engineer>>(engineers);
+            Assert.IsType<List<Engineer>>(engineers);
             Assert.Equal(engineers.Count, 2);
         }
     }

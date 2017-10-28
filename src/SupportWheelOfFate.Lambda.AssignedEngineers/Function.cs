@@ -1,6 +1,7 @@
 
 using Amazon.Lambda.Core;
 using Newtonsoft.Json;
+using SupportWheelOfFate.Core;
 using SupportWheelOfFate.Lambda.AssignedEngineers.Models;
 using System.Collections.Generic;
 using System.Net.Http;
