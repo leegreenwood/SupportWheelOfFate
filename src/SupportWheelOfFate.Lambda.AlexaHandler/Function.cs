@@ -65,40 +65,69 @@ namespace SupportWheelOfFate.Lambda.AlexaHandler
                         var inquireDateValue = intentRequest.Intent.Slots["SupportDate"].Value;
                         var inquireDate = Convert.ToDateTime(inquireDateValue);
 
-                        var engineers = new List<Engineer>();
-
-                        var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/" + inquireDateValue; // Obtain list of all Engineers
-
-                        using (var client = new HttpClient())
+                        if (inquireDate > DateTime.Now)
                         {
-                            var apiResponse = client.GetAsync(url).Result;
+                            payload = "We allocate support engineers on a daily basis, and sadly we cannot predict the future";
+                        }
+                        else if (inquireDate.DayOfWeek == DayOfWeek.Saturday || inquireDate.DayOfWeek == DayOfWeek.Sunday)
+                        {
+                            payload = "You are inquiring about a weekend day. Support outside core hours in handled by an overseas team";
+                        }
+                        else if ((DateTime.Now - inquireDate).TotalDays > 14)
+                        {
+                            payload = "We only track rach engineers last shift, and our records don't cover that date";
+                        }
+                        else
+                        {
+                            var engineers = new List<Engineer>();
 
-                            if (apiResponse.IsSuccessStatusCode)
-                            {                                
-                                var responseContent = apiResponse.Content;
-                                
-                                string json = responseContent.ReadAsStringAsync().Result;
+                            var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/" + inquireDateValue; // Obtain list of all Engineers
 
-                                engineers = JsonConvert.DeserializeObject<List<Engineer>>(json);
+                            using (var client = new HttpClient())
+                            {
+                                var apiResponse = client.GetAsync(url).Result;
 
-                                payload = "The engineers on support are ";
-
-                                var engineerCount = 0;
-
-                                foreach (var engineer in engineers)
+                                if (apiResponse.IsSuccessStatusCode)
                                 {
-                                    payload += engineer.EngineerName;
-                                    engineerCount++;
+                                    var responseContent = apiResponse.Content;
 
-                                    if (engineerCount < engineers.Count)
+                                    string json = responseContent.ReadAsStringAsync().Result;
+
+                                    try
                                     {
-                                        payload += " and ";
+                                        engineers = JsonConvert.DeserializeObject<List<Engineer>>(json);
+
+                                        if (engineers != null)
+                                        {
+                                            payload = "The engineers on support are ";
+
+                                            var engineerCount = 0;
+
+                                            foreach (var engineer in engineers)
+                                            {
+                                                payload += engineer.EngineerName;
+                                                engineerCount++;
+
+                                                if (engineerCount < engineers.Count)
+                                                {
+                                                    payload += " and ";
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            payload = "I'm afraid I don't have that information at present.";
+                                        }
+                                    }
+                                    catch
+                                    {
+                                        payload = "I'm afraid I don't have that information at present.";
                                     }
                                 }
-                            }
-                            else
-                            {
-                                payload = "I'm afraid I don't have that information at present.";
+                                else
+                                {
+                                    payload = "I'm afraid I don't have that information at present.";
+                                }
                             }
                         }
 
