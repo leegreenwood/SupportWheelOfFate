@@ -53,3 +53,37 @@ Body Mapping Template:
 `{
     "SupportDate": "$input.params('supportDate')"
 }`    
+
+# API Gateway - Update an Engineer
+
+Description: Proxies DynamoDB to Post an Engineer Update
+
+Requirements:
+- Valid IAM Role with permissions to DynamoDB
+
+## /engineers/update/{engineerId}
+
+Context-Type: application/json
+Body Mapping Template:
+
+`#set($inputRoot = $input.path('$'))
+{
+    "TableName": "SupportWheelOfFate",
+    "Item": {
+	    "engineerId": {
+            "S": "$input.path('$.engineerId')"
+            },
+        "engineerName": {
+            "S": "$input.path('$.engineerName')"
+            },
+        "engineerHandle": {
+            "S": "$input.path('$.engineerHandle')"
+            },
+        "dateLastShift": {
+            "S": "$input.path('$.dateLastShift')"
+            },
+        "timeLastShift": {
+            "S": "$input.path('$.timeLastShift')"
+            }
+    }
+}`
