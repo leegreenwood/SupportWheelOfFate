@@ -65,7 +65,7 @@ namespace SupportWheelOfFate.Lambda.AlexaHandler
                         var inquireDateValue = intentRequest.Intent.Slots["SupportDate"].Value;
                         var inquireDate = Convert.ToDateTime(inquireDateValue);
 
-                        if (inquireDate > DateTime.Now)
+                        if (inquireDate > DateTime.Now.Date.AddDays(1))
                         {
                             payload = "We allocate support engineers on a daily basis, and sadly we cannot predict the future";
                         }
