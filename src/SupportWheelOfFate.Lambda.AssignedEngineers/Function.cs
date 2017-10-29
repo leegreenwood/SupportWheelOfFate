@@ -61,7 +61,7 @@ namespace SupportWheelOfFate.Lambda.AssignedEngineers
                             Content = content
                         };
 
-                        var response = client.SendAsync(request);
+                        var response = client.SendAsync(request).Result;
                     }
                 }
             }

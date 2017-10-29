@@ -13,7 +13,7 @@ namespace SupportWheelOfFate.Lambda.AssignedEngineers.Tests
         {
             // Arrange
             var workday = NextWorkday();
-            var request = new Models.EngineerRequest { SupportDate = workday.ToString("yyyy-MM-dd"), UpdateEngineers = false };
+            var request = new Models.EngineerRequest { SupportDate = workday.ToString("yyyy-MM-dd"), UpdateEngineers = true };
 
             // Invoke the lambda function and confirm a list of Engineers is returned
             var function = new Function();
