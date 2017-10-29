@@ -27,8 +27,11 @@ namespace SupportWheelOfFate.Core.Services
             {
                 // Assign some engineers for this specified day
 
-                // Create a shortlist where the engineers didn't have a shift the previous day
-                var shortlist = engineers.Where(e => supportDate.Date - Convert.ToDateTime(e.DateLastShift).Date != TimeSpan.FromDays(1)).ToList();
+                // Shortlist all engineers who haven't done a shift
+                var shortlist = engineers.Where(e => string.IsNullOrEmpty(e.DateLastShift)).ToList();
+
+                // Update shortlist where previously scheduled engineers didn't have a shift the previous day (regardless of day of week)
+                shortlist.AddRange(engineers.Where(e => !string.IsNullOrEmpty(e.DateLastShift) && supportDate.Date - Convert.ToDateTime(e.DateLastShift).Date != TimeSpan.FromDays(1)).ToList());
 
                 var rnd = new Random();
 
