@@ -3,6 +3,7 @@ using Amazon.Lambda.Core;
 using Newtonsoft.Json;
 using SupportWheelOfFate.Core;
 using SupportWheelOfFate.Lambda.AssignedEngineers.Models;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 
@@ -12,19 +13,18 @@ using System.Net.Http;
 namespace SupportWheelOfFate.Lambda.AssignedEngineers
 {
     public class Function
-    {
-
+    {       
         /// <summary>
-        /// A simple function that takes a string and does a ToUpper
+        /// A simple function that handles an EngineerRequest object
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="context"></param>
-        /// <returns></returns>
+        /// <param name="input">The EngineerRequest object</param>
+        /// <param name="context">The Lambda Execution Context</param>
+        /// <returns>A List of assigned Engineers</returns>
         public List<Engineer> FunctionHandler(EngineerRequest input, ILambdaContext context)
         {
-            var engineers = new List<Engineer>();
+            var engineerPool = new List<Engineer>();
 
-            var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/"; // Obtain list of all Engineers
+            var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/"; // Obtain complete pool of Engineers
 
             using (var client = new HttpClient())
             {
@@ -38,13 +38,12 @@ namespace SupportWheelOfFate.Lambda.AssignedEngineers
                     // by calling .Result you are synchronously reading the result
                     string json = responseContent.ReadAsStringAsync().Result;
 
-                    engineers = JsonConvert.DeserializeObject<List<Engineer>>(json);                    
+                    engineerPool = JsonConvert.DeserializeObject<List<Engineer>>(json);                    
                 }
             }
 
-            // TODO: Need to correctly process the Engineers List
-
-            return engineers;
+            // Invoke the Assign Engineers Service to retrieve/assigned engineers
+            return Core.Services.AssignEngineersService.GetAssignedEngineers(engineerPool, Convert.ToDateTime(input.SupportDate));            
         }
     }
 }

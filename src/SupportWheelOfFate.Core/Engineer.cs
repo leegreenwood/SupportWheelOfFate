@@ -4,6 +4,11 @@ namespace SupportWheelOfFate.Core
 {
     public class Engineer
     {
+        public Engineer()
+        {
+            UpdateEngineer = false;
+        }
+
         [JsonProperty(PropertyName = "engineerId")]
         public string EngineerId { get; set; }
 
@@ -18,5 +23,8 @@ namespace SupportWheelOfFate.Core
 
         [JsonProperty(PropertyName = "timeLastShift")]
         public string TimeLastShift { get; set; }
+
+        [JsonIgnore]
+        public bool UpdateEngineer { get; set; }
     }
 }
