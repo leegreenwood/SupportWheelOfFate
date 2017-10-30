@@ -14,7 +14,7 @@
 					"listen": "test",
 					"script": {
 						"type": "text/javascript",
-						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds"
+						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Total Engineer count is \" + jsonData.length] = true;"
 					}
 				}
 			],
@@ -50,6 +50,26 @@
 					"formdata": []
 				},
 				"description": "Returns the assigned Engineers for a specific date"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Engineer (Lucas Wolenczak)",
+			"request": {
+				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/update/6fead209-59b7-40f1-b308-837a7c3d5df5",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{    \n    \"engineerId\": \"6fead209-59b7-40f1-b308-837a7c3d5df5\",\n    \"engineerName\": \"Lucas Wolenczak\",\n    \"engineerHandle\": \"Frankenstein\",\n    \"dateLastShift\": \"2017-10-11\",\n    \"timeLastShift\": \"AM\"\n}"
+				},
+				"description": ""
 			},
 			"response": []
 		}
