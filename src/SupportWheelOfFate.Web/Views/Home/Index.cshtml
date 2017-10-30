@@ -1,0 +1,38 @@
+﻿@model SupportViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="jumbotron">
+    <div class="container">
+        <h1 class="display-3">Hello, engineer!</h1>
+        <p>This website is a runtime demo of the SupportWheelOfFate project by Lee Greenwood, available on GitHub.</p>
+        <p>This project was written to utilize AWS PaaS principles. You can find out more <a href="https://github.com/leegreenwood/SupportWheelOfFate/blob/master/README.md">here</a>.</p>
+        <p>There is also an Alexa Skill available. Testing instructions are available <a href="https://github.com/leegreenwood/SupportWheelOfFate/blob/master/Testing.md">here</a>.</p>
+        <p>To understand how the AWS API Gateway was built, please look <a href="https://github.com/leegreenwood/SupportWheelOfFate/blob/master/AWS%20Configuration.md">here</a>.</p>
+        <p><a class="btn btn-primary btn-lg" href="https://github.com/leegreenwood/SupportWheelOfFate" role="button">Visit GitHub repo</a></p>
+    </div>
+</div>
+
+<h1 style="text-align: center;">The assigned engineers for @Model.SupportDate.ToString("dd/MM/yyyy") are:</h1>
+
+<div class="container">    
+    <div class="row">
+        @{
+            foreach (var engineer in Model.AssignedEngineers.OrderBy(e => e.TimeLastShift))
+            {
+                <div class="col-md-6" style="text-align: center;">
+                    <h1>
+                        @engineer.TimeLastShift Shift
+                    </h1>
+                    <h2>
+                        @engineer.EngineerName
+                    </h2>
+                    <h4>
+                        aka "@engineer.EngineerHandle"
+                    </h4>
+                </div>
+            }
+        }
+    </div>    
+</div>

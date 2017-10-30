@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "speechAssets", "speechAsset
 		speechAssets\model-en-GB.json = speechAssets\model-en-GB.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportWheelOfFate.Core", "src\SupportWheelOfFate.Core\SupportWheelOfFate.Core.csproj", "{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWheelOfFate.Core", "src\SupportWheelOfFate.Core\SupportWheelOfFate.Core.csproj", "{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportWheelOfFate.Web", "src\SupportWheelOfFate.Web\SupportWheelOfFate.Web.csproj", "{5DF93018-56DB-4A99-8893-C59C59B86D49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -48,6 +50,10 @@ Global
 		{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DF93018-56DB-4A99-8893-C59C59B86D49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DF93018-56DB-4A99-8893-C59C59B86D49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DF93018-56DB-4A99-8893-C59C59B86D49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DF93018-56DB-4A99-8893-C59C59B86D49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -58,6 +64,7 @@ Global
 		{B85FDFDC-845B-406A-A396-6888CEF728F5} = {3B77C112-26F4-423E-BC2E-13D39079CA46}
 		{420E8EB2-880A-4240-BA32-098DE5945B1F} = {58293130-1F52-4FB7-8DDF-F9BFF4D009C8}
 		{08CF0839-AA1C-4204-B1F1-8F5B5B57A1F0} = {3B77C112-26F4-423E-BC2E-13D39079CA46}
+		{5DF93018-56DB-4A99-8893-C59C59B86D49} = {3B77C112-26F4-423E-BC2E-13D39079CA46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {414E6AE6-18DE-4D5B-838E-F0AD2C2398AD}
