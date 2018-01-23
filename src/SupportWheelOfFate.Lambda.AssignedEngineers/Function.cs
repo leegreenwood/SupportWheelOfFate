@@ -16,7 +16,7 @@ namespace SupportWheelOfFate.Lambda.AssignedEngineers
 {
     public class Function
     {       
-        private const string baseApiUrl = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod";
+        private const string baseApiUrl = "https://d1gifumbnf.execute-api.us-east-1.amazonaws.com/prod";
 
         /// <summary>
         /// A simple function that handles an EngineerRequest object

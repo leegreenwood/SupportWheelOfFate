@@ -18,7 +18,7 @@ namespace SupportWheelOfFate.Web.Controllers
                 inquireDateValue = DateTime.Today.Date.ToString("yyyy-MM-dd");
             }
 
-            var url = "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/" + inquireDateValue; // Obtain list of all Engineers
+            var url = "https://d1gifumbnf.execute-api.us-east-1.amazonaws.com/prod/engineers/" + inquireDateValue; // Obtain list of all Engineers
 
             var model = new SupportViewModel
             {
