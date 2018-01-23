@@ -1,77 +1,84 @@
 {
-	"variables": [],
-	"info": {
-		"name": "Support Wheel Of Fate",
-		"_postman_id": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9",
-		"description": "This is a simple Postman collection for testing the API for Support Wheel Of Fate.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
-	},
-	"item": [
+	"owner": "2208668",
+	"lastUpdatedBy": "2208668",
+	"lastRevision": 2479940989,
+	"team": null,
+	"id": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9",
+	"name": "Support Wheel Of Fate",
+	"description": "This is a simple Postman collection for testing the API for Support Wheel Of Fate.",
+	"order": [
+		"0dbf904b-f1e5-1bae-3b5b-2e43f0dad556",
+		"004ee3a9-39d4-741a-36ad-fa718feedcc8",
+		"6eb93edb-8098-c18e-1e5d-5baccd058351"
+	],
+	"requests": [
 		{
-			"name": "Engineers List",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Total Engineer count is \" + jsonData.length] = true;"
-					}
-				}
-			],
-			"request": {
-				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers",
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"description": "Returns a list of the current Engineers"
-			},
-			"response": []
-		},
-		{
+			"id": "004ee3a9-39d4-741a-36ad-fa718feedcc8",
+			"headers": "",
+			"headerData": [],
+			"url": "https://d1gifumbnf.execute-api.us-east-1.amazonaws.com/prod/engineers/2018-01-01",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Assigned Engineer Count is 2\"] = jsonData.length === 2;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516719573204,
 			"name": "Assigned Engineers (Date)",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"type": "text/javascript",
-						"exec": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Assigned Engineer Count is 2\"] = jsonData.length === 2;"
-					}
-				}
-			],
-			"request": {
-				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/2017-10-28",
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": []
-				},
-				"description": "Returns the assigned Engineers for a specific date"
-			},
-			"response": []
+			"description": "Returns the assigned Engineers for a specific date",
+			"collectionId": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9"
 		},
 		{
+			"id": "0dbf904b-f1e5-1bae-3b5b-2e43f0dad556",
+			"headers": "",
+			"headerData": [],
+			"url": "https://d1gifumbnf.execute-api.us-east-1.amazonaws.com/prod/engineers",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": "tests[\"Status code is 200\"] = responseCode.code === 200;\ntests[\"Response time is acceptable\"] = responseTime < 1000; // milliseconds\n\nvar jsonData = JSON.parse(responseBody);\ntests[\"Total Engineer count is \" + jsonData.length] = true;",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516719156843,
+			"name": "Engineers List",
+			"description": "Returns a list of the current Engineers",
+			"collectionId": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9"
+		},
+		{
+			"id": "6eb93edb-8098-c18e-1e5d-5baccd058351",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "https://d1gifumbnf.execute-api.us-east-1.amazonaws.com/prod/engineers/update/6fead209-59b7-40f1-b308-837a7c3d5df5",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1516720280467,
 			"name": "Update Engineer (Lucas Wolenczak)",
-			"request": {
-				"url": "https://fj7w0figk9.execute-api.us-east-1.amazonaws.com/prod/engineers/update/6fead209-59b7-40f1-b308-837a7c3d5df5",
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"description": ""
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{    \n    \"engineerId\": \"6fead209-59b7-40f1-b308-837a7c3d5df5\",\n    \"engineerName\": \"Lucas Wolenczak\",\n    \"engineerHandle\": \"Frankenstein\",\n    \"dateLastShift\": \"2017-10-11\",\n    \"timeLastShift\": \"AM\"\n}"
-				},
-				"description": ""
-			},
-			"response": []
+			"description": "",
+			"collectionId": "fbd3f349-f119-e5dd-5c92-ffc3929a14e9",
+			"rawModeData": "{    \n    \"engineerId\": \"6fead209-59b7-40f1-b308-837a7c3d5df5\",\n    \"engineerName\": \"Lucas Wolenczak\",\n    \"engineerHandle\": \"Frankenstein\",\n    \"dateLastShift\": \"2017-10-12\",\n    \"timeLastShift\": \"AM\"\n}"
 		}
 	]
 }
